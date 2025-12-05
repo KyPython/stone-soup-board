@@ -1,0 +1,16 @@
+{
+  "name": "stone-soup-board",
+  "version": "1.0.0",
+  "description": "A minimal kanban board for iterative, collaborative improvement",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend && npm test"
+  },
+  "keywords": ["kanban", "collaborative", "stone-soup"],
+  "author": "",
+  "license": "MIT"
+}
+
