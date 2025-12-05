@@ -2,16 +2,26 @@ import { Card, Column } from './types';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
 
+// Debug: Log API URL (remove in production)
+if (process.env.NODE_ENV !== 'production') {
+  console.log('API Base URL:', API_BASE_URL);
+}
+
 // STONE SOUP TODO: Add error handling wrapper
 // STONE SOUP TODO: Add request retry logic
 // STONE SOUP TODO: Add request caching
 export const api = {
   async getColumns(): Promise<Column[]> {
-    const response = await fetch(`${API_BASE_URL}/columns`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch columns');
+    try {
+      const response = await fetch(`${API_BASE_URL}/columns`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch columns: ${response.status} ${response.statusText}`);
+      }
+      return response.json();
+    } catch (error) {
+      console.error('API Error (getColumns):', error);
+      throw new Error(`API connection failed: ${error instanceof Error ? error.message : 'Unknown error'}. URL: ${API_BASE_URL}`);
     }
-    return response.json();
   },
 
   async getCards(): Promise<Card[]> {

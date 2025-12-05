@@ -25,6 +25,7 @@ export const Board: React.FC = () => {
       setColumns(columnsData.sort((a, b) => a.order - b.order));
       setCards(cardsData);
     } catch (err) {
+      console.error('Failed to load board data:', err);
       setError(err instanceof Error ? err.message : 'Failed to load data');
     } finally {
       setLoading(false);
