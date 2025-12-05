@@ -2,6 +2,13 @@
 
 A minimal kanban board application explicitly designed for iterative contribution and refactoring. This project follows the "Stone Soup" philosophy—starting with a simple foundation that invites collaborative improvement.
 
+## 🌐 Live Demo
+
+- **Frontend**: https://stone-soup-board.vercel.app/
+- **Backend API**: https://stone-soup-board.onrender.com/api
+
+Try it out! Create cards, move them between columns, edit and delete them.
+
 ## Purpose
 
 This project serves as a practice ground for:
