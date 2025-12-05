@@ -9,7 +9,12 @@ const PORT = process.env.PORT || 3001;
 // Security: Disable X-Powered-By header
 app.disable('x-powered-by');
 
-app.use(cors());
+// CORS configuration - allow requests from frontend
+// STONE SOUP TODO: Configure allowed origins via environment variable for production
+app.use(cors({
+  origin: process.env.FRONTEND_URL || '*', // In production, set FRONTEND_URL to your frontend domain
+  credentials: true,
+}));
 app.use(express.json());
 
 // Health check
